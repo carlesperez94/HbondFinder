@@ -1,0 +1,75 @@
+Deleted atom 4855: This hydrogen had invalid number of bonds (2)
+Deleted atom 4856: This hydrogen had invalid number of bonds (2)
+Deleted atom 4858: This hydrogen had invalid number of bonds (2)
+Deleted atom 4861: This hydrogen had invalid number of bonds (2)
+
+Assigned bond orders to the workspace, while skipping residues with existing double & triple bonds
+  No bond orders were changed
+
+Added hydrogens to the Workspace structure
+
+Treated metals in the Workspace structure
+  Created disulfide bonds: []
+
+Found 1 het groups
+  HET 1 atoms: [4839, 4840, 4841, 4842, 4843, 4844, 4845, 4846, 4847, 4848, 4849, 4850, 4851, 4852, 4853, 4854]
+
+Deleted waters farther than 5.0 angstroms from hets
+
+Found 1 het groups
+  HET 1 atoms: [4839, 4840, 4841, 4842, 4843, 4844, 4845, 4846, 4847, 4848, 4849, 4850, 4851, 4852, 4853, 4854]
+
+Found 0 waters
+
+Generated ionization/tautomeric states for all het groups
+Epik job ({job_id}) incorporated.
+Deleted atom 4855: This hydrogen had invalid number of bonds (2)
+Deleted atom 4856: This hydrogen had invalid number of bonds (2)
+Deleted atom 4858: This hydrogen had invalid number of bonds (2)
+Deleted atom 4861: This hydrogen had invalid number of bonds (2)
+
+Assigned bond orders to the workspace, while skipping residues with existing double & triple bonds
+  No bond orders were changed
+
+Added hydrogens to the Workspace structure
+
+Treated metals in the Workspace structure
+  Created disulfide bonds: []
+
+Found 1 het groups
+  HET 1 atoms: [4839, 4840, 4841, 4842, 4843, 4844, 4845, 4846, 4847, 4848, 4849, 4850, 4851, 4852, 4853, 4854]
+
+Deleted waters farther than 5.0 angstroms from hets
+
+Found 1 het groups
+  HET 1 atoms: [4839, 4840, 4841, 4842, 4843, 4844, 4845, 4846, 4847, 4848, 4849, 4850, 4851, 4852, 4853, 4854]
+
+Found 0 waters
+
+Generated ionization/tautomeric states for all het groups
+Epik job ({job_id}) incorporated.
+Deleted atom 4855: This hydrogen had invalid number of bonds (2)
+Deleted atom 4856: This hydrogen had invalid number of bonds (2)
+Deleted atom 4858: This hydrogen had invalid number of bonds (2)
+Deleted atom 4861: This hydrogen had invalid number of bonds (2)
+
+Assigned bond orders to the workspace, while skipping residues with existing double & triple bonds
+  No bond orders were changed
+
+Added hydrogens to the Workspace structure
+
+Treated metals in the Workspace structure
+  Created disulfide bonds: []
+
+Found 1 het groups
+  HET 1 atoms: [4839, 4840, 4841, 4842, 4843, 4844, 4845, 4846, 4847, 4848, 4849, 4850, 4851, 4852, 4853, 4854]
+
+Deleted waters farther than 5.0 angstroms from hets
+
+Found 1 het groups
+  HET 1 atoms: [4839, 4840, 4841, 4842, 4843, 4844, 4845, 4846, 4847, 4848, 4849, 4850, 4851, 4852, 4853, 4854]
+
+Found 0 waters
+
+Generated ionization/tautomeric states for all het groups
+Epik job ({job_id}) incorporated.

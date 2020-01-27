@@ -1,4 +1,3 @@
-HBOND_ATOMS = {"436": ["O"],
-               "438": ["H", "O"]}
-COLUMN_NAME = "hbonds"
+HBOND_ATOMS = {"92": ["O"],
+               "94": ["H", "O"]}
 

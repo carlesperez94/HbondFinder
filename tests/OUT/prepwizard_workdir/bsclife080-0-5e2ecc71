@@ -1,0 +1,63 @@
+filesize: 3325
+JobId: bsclife080-0-5e2ecc71
+Name: prepwizard-epik
+Program: Epik
+Project: /home/carles/.schrodinger/tmp/tproj41889a33494
+Processors: 1
+ViewName: Prepwizard
+OrigLaunchHost: bsclife080
+OrigLaunchDir: /home/carles/software/AnalysiScripts/HbondFinder/tests/OUT/prepwizard_workdir
+Host: bsclife080
+User: carles
+Dir: /home/carles/software/AnalysiScripts/HbondFinder/tests/OUT/prepwizard_workdir
+HostsFile: /opt/schrodinger2018-4/schrodinger.hosts
+HostEntry: localhost
+Commandline: /opt/schrodinger2018-4/epik -ms 10 -ph 7.0 -pht 2.0 -cg 0.3 0.3 -retain_i -imae /home/carles/software/AnalysiScripts/HbondFinder/tests/OUT/prepwizard_workdir/prepwizard-epik.mae -omae prepwizard-epik-out.mae -VIEWNAME Prepwizard -metal_binding -PROJ /home/carles/.schrodinger/tmp/tproj41889a33494 -HOST localhost -DISP custom
+MmshareExec: /opt/schrodinger2018-4/mmshare-v4.4/bin/Linux-x86_64
+JobHost: bsclife080
+JobUser: carles
+JobDir: :tmpdir:
+TmpDir: /home/carles/.schrodinger/tmp
+JobDB: /home/carles/.schrodinger/.jobdb2
+JobMmshareExec: /opt/schrodinger2018-4/mmshare-v4.4/bin/Linux-x86_64
+JobPort: 35385
+JobPid: 33714
+Status: launched
+Disposition: custom
+Summary: The job is being launched.
+Command: BASE64 KCB0aW1lICIlU0NIUk9ESU5HRVIlL3J1biIgIiVFWEVDJS9lcGlrX2FwcCIgLWltYWUgIi9ob21lL2Nhcmxlcy9zb2Z0d2FyZS9BbmFseXNpU2NyaXB0cy9IYm9uZEZpbmRlci90ZXN0cy9PVVQvcHJlcHdpemFyZF93b3JrZGlyL3ByZXB3aXphcmQtZXBpay5tYWUiIC1vbWFlIHByZXB3aXphcmQtZXBpay1vdXQubWFlIC1tcyAxMCAtcGggNy4wIC1waHQgMi4wIC1jZyAwLjMgMC4zIC1yZXRhaW5faSAtbWV0YWxfYmluZGluZyApID4gInByZXB3aXphcmQtZXBpay5sb2ciIDI+JjE=
+Home: /home/carles
+Timezone: +0100
+LaunchTime: 2020-01-27-12:41:37
+StatusTime: 2020-01-27-12:41:37
+StructureOutputFile: prepwizard-epik-out.mae
+LogInterval: 60
+SaveJobDir: 0
+TmpLaunchDir: 0
+AutoCleanup: 0
+Debug: 0
+InputFiles[1]:	/home/carles/software/AnalysiScripts/HbondFinder/tests/OUT/prepwizard_workdir/prepwizard-epik.mae
+OutputFiles[1]:	prepwizard-epik-out.mae
+LogFiles[1]:	prepwizard-epik.log
+Licenses[1]:	EPIK_MAIN:1
+Envs[1]:	EPIK_EXEC=/opt/schrodinger2018-4/epik-v4.6/bin/Linux-x86_64
+Envs[2]:	FLEXLM_TIMEOUT=3000000
+Envs[3]:	HOME_MMSHARE_EXEC=/opt/schrodinger2018-4/mmshare-v4.4/bin/Linux-x86_64
+Envs[4]:	JOBNAME=prepwizard-epik
+Envs[5]:	MMSHARE_EXEC=/opt/schrodinger2018-4/mmshare-v4.4/bin/Linux-x86_64
+Envs[6]:	SCHRODINGER=/opt/schrodinger2018-4
+Envs[7]:	SCHRODINGER_APP_EXEC=EPIK_EXEC
+Envs[8]:	SCHRODINGER_COMMANDLINE="/opt/schrodinger2018-4/epik -ms 10 -ph 7.0 -pht 2.0 -cg 0.3 0.3 -retain_i -imae /home/carles/software/AnalysiScripts/HbondFinder/tests/OUT/prepwizard_workdir/prepwizard-epik.mae -omae prepwizard-epik-out.mae -VIEWNAME Prepwizard -metal_binding -PROJ /home/carles/.schrodinger/tmp/tproj41889a33494 -HOST localhost -DISP custom"
+Envs[9]:	SCHRODINGER_EXEC=/opt/schrodinger2018-4/internal/bin
+Envs[10]:	SCHRODINGER_FEATURE_FLAGS=0
+Envs[11]:	SCHRODINGER_JOBID=bsclife080-0-5e2ecc71
+Envs[12]:	SCHRODINGER_JOB_DEBUG=0
+Envs[13]:	SCHRODINGER_NICE=local
+Envs[14]:	SCHRODINGER_PERL_FEATURE_FLAGS_ENABLED=
+Envs[15]:	SCHRODINGER_PRODUCT=epik
+Envs[16]:	SCHRODINGER_PROJECT=/home/carles/.schrodinger/tmp/tproj41889a33494
+Envs[17]:	SCHRODINGER_SAVE_JOBDIR=0
+Envs[18]:	SCHRODINGER_TPP=
+Envs[19]:	SCHRODINGER_UMASK=18
+Envs[20]:	SCHRODINGER_VIEWNAME=Prepwizard
+Warnings[1]:	the declared tmpdir(s) - /scratch is not writable; using /home/carles/.schrodinger/tmp
