@@ -1,0 +1,11 @@
+path: "OUT/trajectory_*.pdb"
+ligname: "GRW"
+specific_hbonds: {92: ["O"],
+                  94: ["O", "H"]}
+angle: 2.094
+distance: 0.25
+pseudo: True
+outpath: "hbond_analysis"
+cpus: 8
+report_out: "report_hb_"
+report_in: "report_"
