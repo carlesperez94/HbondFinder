@@ -222,14 +222,12 @@ def main(path_to_pdbs, resname="LIG", specifics=None, distance=0.25, angle=2.0 *
     print_info(path_to_pdbs, resname, specifics, distance, angle, pseudo, outpath, proc, top, rep_in, rep_out)
     pdbs = sorted(glob.glob(path_to_pdbs))
     reports_paths_list = ["/".join(os.path.abspath(pdb).split("/")[:-1]) for pdb in pdbs]
-    pdb_ids = []
     reports_list = []
     for pdb in pdbs:
         pdb_id = pdb.split(".pdb")[0].split("trajectory_")[-1]
         for report_path in reports_paths_list:
              reports_list.append(os.path.join(report_path, "{}{}".format(rep_in, pdb_id)))
     reports_list = sorted(list(set(reports_list)))
-    path_to_report = "/".join(os.path.abspath(path_to_pdbs).split("/")[:-1])
     own_path = os.path.join(outpath)
     if not os.path.exists(own_path):
         os.mkdir(own_path)
