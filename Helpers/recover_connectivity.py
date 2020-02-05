@@ -1,3 +1,33 @@
+import argparse
+
+__author__ = "Carles Perez Lopez"
+
+
+def parse_arguments():
+    """
+        Parse user arguments
+        Output: list with all the user arguments
+    """
+
+    parser = argparse.ArgumentParser(description="""Description: Program to recover CONECT section of trajectories
+     from prepared PDB files. """)
+    required_named = parser.add_argument_group('required named arguments')
+    required_named.add_argument("pdb_connected", type=str, help="PDB file with the CONECT section completed.")
+    required_named.add_argument("--pdb_target",nargs="+",
+                                help="List of PDB files without CONECT section, which must be added from "
+                                     "the 'pdb_connected'."
+                                )
+    parser.add_argument("-lc", "--lig_chain_connected", type=str, default="L",
+                        help="Ligand chain of the connected pdb. If it is not found, the program will select HETATM"
+                             " without assigned chain.")
+    parser.add_argument("-lt", "--lig_chain_target", type=str, default="L",
+                        help="Ligand chain of the connected pdb. If it is not found, the program will select HETATM"
+                             " without assigned chain.")
+    args = parser.parse_args()
+
+    return args.pdb_connected, args.pdb_target, args.lig_chain_connected, args.lig_chain_target
+
+
 class LigandPDB:
     def __init__(self, pdb_file, ligand_chain="L"):
         self.pdb_file = pdb_file
@@ -47,6 +77,12 @@ class LigandPDB:
             lig_dict[line[12:16].strip()] = line[6:11].strip()
         return lig_dict
 
+    def add_connectivity(self, new_connects):
+        if not self.get_connects():
+            self.content = self.content + new_connects  # Update the content of the PDB
+        else:
+            print("Your PDB {} already contains a CONECT section!".format(self.pdb_file))
+
 
 def create_index_relation_between_connect_and_to_connect(pdb_connected, pdb2connect):
     pdb_connected_names_dict = pdb_connected.get_model_ligand_name_index_dictionary(0)
@@ -63,11 +99,9 @@ def rebuild_connect_line(connections_list):
     return new_connect_line
 
 
-def recover_connectivity(pdb_connected, pdb_to_connect, ligand_chain_connected="L", ligand_chain_to_connect="L"):
-    pdbc = LigandPDB(pdb_file=pdb_connected, ligand_chain=ligand_chain_connected)
-    pdb2c = LigandPDB(pdb_file=pdb_to_connect, ligand_chain=ligand_chain_to_connect)
-    index_relations = create_index_relation_between_connect_and_to_connect(pdbc, pdb2c)
-    connects_pdb_connected = pdbc.get_connects().split("\n")
+def recover_connectivity(pdb_connected, pdb_to_connect):
+    index_relations = create_index_relation_between_connect_and_to_connect(pdb_connected, pdb_to_connect)
+    connects_pdb_connected = pdb_connected.get_connects().split("\n")
     connects_lines = []
     for line in connects_pdb_connected:
         connections_list = line.split()[1:]
@@ -77,13 +111,22 @@ def recover_connectivity(pdb_connected, pdb_to_connect, ligand_chain_connected="
         new_connect = rebuild_connect_line(connections_list)
         connects_lines.append(new_connect)
     connects = "\n".join(connects_lines)
+    return connects
 
 
+def main(pdb_connected, pdb_to_connect, ligand_chain_connected="L", ligand_chain_to_connect="L"):
+    pdbc = LigandPDB(pdb_file=pdb_connected, ligand_chain=ligand_chain_connected)
+    for p2c in pdb_to_connect:
+        print(p2c)
+        pdb2c = LigandPDB(pdb_file=p2c, ligand_chain=ligand_chain_to_connect)
+        new_connects = recover_connectivity(pdbc, pdb2c)
+        pdb2c.add_connectivity(new_connects)
+        with open(p2c, "w") as out:
+            out.write(pdb2c.content)
 
 
-
-
-print(recover_connectivity(pdb_connected="/home/carles/Almirall/Data2Victor/ligands/CHEMBL1164264.pdb",
-                           pdb_to_connect="/home/carles/Almirall/Data2Victor/trajectories/trajectory_1.pdb"))
+if __name__ == '__main__':
+    pdbc, pdbt, lig_ch_c, lig_ch_t = parse_arguments()
+    main(pdbc, pdbt, lig_ch_c, lig_ch_t)
 
 
