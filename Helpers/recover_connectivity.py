@@ -43,10 +43,15 @@ class LigandPDB:
         return content
 
     def get_models_dict(self):
-        model_list = self.content.split("MODEL")
-        model_dict = {}
-        for n, model in enumerate(model_list[1:]):
-            model_dict[n] = model
+        if "MODEL" in self.content:
+            model_list = self.content.split("MODEL")
+            model_dict = {}
+            for n, model in enumerate(model_list[1:]):
+                model_dict[n] = model
+        else:
+            model_dict = {}
+            model = self.content
+            model_dict[0] = model 
         return model_dict
 
     def get_model_ligand_content(self, model):

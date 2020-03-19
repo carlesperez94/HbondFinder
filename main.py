@@ -5,12 +5,12 @@ import glob
 import argparse
 import multiprocessing as mp
 
-import yaml
+#import yaml
 import numpy as np
 import pandas as pd
 import mdtraj as md
-import hbond_mod as hm
-import atoms_to_explore as a2e
+import HbondFinder.hbond_mod as hm
+import HbondFinder.atoms_to_explore as a2e
 
 __author__ = "Carles Perez Lopez"
 __version__ = "1.0.0"
@@ -120,6 +120,7 @@ def select_specific_atoms(traj, specific_dict):
 def find_hbond_in_snapshot(trajectory, n, hbonds_lig, ligand_indexes, specifics=None, distance=0.25, angle=2.0 * np.pi / 3.0,
                           pseudo=False):
     snapshot = trajectory[n]
+#    hbonds = md.baker_hubbard(traj=snapshot)
     hbonds = hm.baker_hubbard(traj=snapshot, distance=distance, angle=angle, pseudo=pseudo)
     for hbond in hbonds:
         print(snapshot.topology.atom(hbond[0]), snapshot.topology.atom(hbond[2]))
