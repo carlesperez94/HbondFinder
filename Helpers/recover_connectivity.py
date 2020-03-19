@@ -1,4 +1,5 @@
 import argparse
+import traceback
 
 __author__ = "Carles Perez Lopez"
 
@@ -23,9 +24,11 @@ def parse_arguments():
     parser.add_argument("-lt", "--lig_chain_target", type=str, default="L",
                         help="Ligand chain of the connected pdb. If it is not found, the program will select HETATM"
                              " without assigned chain.")
+    parser.add_argument("-ov", "--overwrite", default=False, action='store_true',
+                        help=" If set the input PDB targets will be overwritten by the connected version.")
     args = parser.parse_args()
 
-    return args.pdb_connected, args.pdb_target, args.lig_chain_connected, args.lig_chain_target
+    return args.pdb_connected, args.pdb_target, args.lig_chain_connected, args.lig_chain_target, args.overwrite
 
 
 class LigandPDB:
@@ -114,19 +117,28 @@ def recover_connectivity(pdb_connected, pdb_to_connect):
     return connects
 
 
-def main(pdb_connected, pdb_to_connect, ligand_chain_connected="L", ligand_chain_to_connect="L"):
+def main(pdb_connected, pdb_to_connect, ligand_chain_connected="L", ligand_chain_to_connect="L", overwrite=False):
     pdbc = LigandPDB(pdb_file=pdb_connected, ligand_chain=ligand_chain_connected)
+    print("Ligand: {}".format(pdb_connected))
     for p2c in pdb_to_connect:
-        print(p2c)
         pdb2c = LigandPDB(pdb_file=p2c, ligand_chain=ligand_chain_to_connect)
         new_connects = recover_connectivity(pdbc, pdb2c)
         pdb2c.add_connectivity(new_connects)
-        with open(p2c, "w") as out:
-            out.write(pdb2c.content)
-
+        if overwrite:
+            with open(p2c, "w") as out:
+                out.write(pdb2c.content)
+        else:
+            if "/" in p2c:
+                path = p2c.split("/")
+                path[-1] = "conn"+path[-1]
+                new_p2c = "/".join(path)
+            else:
+                new_p2c = p2c
+            with open(new_p2c, "w") as out:
+                out.write(pdb2c.content)
 
 if __name__ == '__main__':
-    pdbc, pdbt, lig_ch_c, lig_ch_t = parse_arguments()
-    main(pdbc, pdbt, lig_ch_c, lig_ch_t)
+    pdbc, pdbt, lig_ch_c, lig_ch_t, ov = parse_arguments()
+    main(pdbc, pdbt, lig_ch_c, lig_ch_t, ov)
 
 
